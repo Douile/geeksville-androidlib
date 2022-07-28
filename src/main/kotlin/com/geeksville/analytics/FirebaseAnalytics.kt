@@ -11,15 +11,15 @@ import com.geeksville.android.Logging
  */
 class GoogleAnalytics(context: Context) : AnalyticsProvider, Logging {
 
-    val t = com.google.firebase.analytics.FirebaseAnalytics.getInstance(context)
+    //val t = com.google.firebase.analytics.FirebaseAnalytics.getInstance(context)
 
     init {
-        val pref = AppPrefs(context)
-        t.setUserId(pref.getInstallId())
+        //val pref = AppPrefs(context)
+        //t.setUserId(pref.getInstallId())
     }
 
     override fun setEnabled(on: Boolean) {
-        t.setAnalyticsCollectionEnabled(on)
+        //t.setAnalyticsCollectionEnabled(on)
     }
 
     override fun endSession() {
@@ -44,7 +44,7 @@ class GoogleAnalytics(context: Context) : AnalyticsProvider, Logging {
                 else -> bundle.putString(it.name, it.value.toString())
             }
         }
-        t.logEvent(event, bundle)
+        //t.logEvent(event, bundle)
     }
 
     override fun startSession() {
@@ -53,7 +53,7 @@ class GoogleAnalytics(context: Context) : AnalyticsProvider, Logging {
     }
 
     override fun setUserInfo(vararg p: DataPair) {
-        p.forEach { t.setUserProperty(it.name, it.value.toString()) }
+        //p.forEach { t.setUserProperty(it.name, it.value.toString()) }
     }
 
     override fun increment(name: String, amount: Double) {
@@ -64,12 +64,12 @@ class GoogleAnalytics(context: Context) : AnalyticsProvider, Logging {
      * Send a google analyics screen view event
      */
     override fun sendScreenView(name: String) {
-        debug("Analytics: start screen $name")
+        /*debug("Analytics: start screen $name")
         GeeksvilleApplication.currentActivity?.let {
             t.setCurrentScreen(
                 it, name, null
             )
-        }
+        }*/
     }
 
     override fun endScreenView() {

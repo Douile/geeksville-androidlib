@@ -1,6 +1,6 @@
 package com.geeksville.analytics
 
-import com.google.firebase.analytics.FirebaseAnalytics
+//import com.google.firebase.analytics.FirebaseAnalytics
 
 /**
  * Created by kevinh on 12/24/14.
@@ -9,8 +9,10 @@ class DataPair(val name: String, valueIn: Any?) {
     val value = valueIn ?: "null"
 
     /// An accumulating firebase event - only one allowed per event
-    constructor(d: Double) : this(FirebaseAnalytics.Param.VALUE, d)
-    constructor(d: Int) : this(FirebaseAnalytics.Param.VALUE, d)
+    //constructor(d: Double) : this(FirebaseAnalytics.Param.VALUE, d)
+    //constructor(d: Int) : this(FirebaseAnalytics.Param.VALUE, d)
+    constructor(d: Double) : this("no", d)
+    constructor(d: Int) : this("no", d)
 }
 
 public interface AnalyticsProvider {
